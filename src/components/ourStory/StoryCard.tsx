@@ -1,16 +1,8 @@
 import Image from "next/image";
 import React from "react";
+import { ItemInterface } from "../../interface/common.interface";
 
-const StoryCard = ({
-  item,
-}: {
-  item: {
-    id: number;
-    img: string;
-    title: string;
-    desc: string;
-  };
-}) => {
+const StoryCard = ({ item }: { item: ItemInterface }) => {
   return (
     <div className="flex flex-col gap-3">
       <div className="w-25 h-25 gradient-primary rounded-[5px] flex items-center justify-center">

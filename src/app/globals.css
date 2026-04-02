@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #f1f5fb;
   --text-black: #02081b;
   --primary-color: #0f172a;
   --secondary-color: #6e6f70;
@@ -48,6 +48,7 @@ html {
 body {
   min-height: 100vh;
   font-family: var(--font-inter);
+  background: var(--background);
 }
 
 @layer utilities {
@@ -57,5 +58,9 @@ body {
 
   .gradient-primary-after {
     @apply after:bg-linear-to-br after:from-white after:via-[#6BF0E7] after:to-[#83F501];
+  }
+
+  .section-padding {
+    @apply px-20 pt-34.5;
   }
 }

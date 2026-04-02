@@ -1,14 +1,15 @@
 import Image from "next/image";
 import StoryCard from "./StoryCard";
 import { STORY } from "../../constants/STORY";
+import Ellipse from "../common/ellipse/Ellipse";
 
 const OurStory = () => {
   return (
     <section
       id="our-story"
-      className="grid grid-cols-[1fr] laptop:grid-cols-[486px_1fr] gap-x-14 overflow-hidden"
+      className="relative grid grid-cols-[1fr] laptop:grid-cols-[486px_1fr] gap-x-14 overflow-hidden"
     >
-      <div className="rounded-[23px] w-full h-[480px] laptop:h-175 desktop:w-auto relative desktop:h-full">
+      <div className="rounded-[23px] w-full h-120 laptop:h-175 desktop:w-auto relative desktop:h-full">
         <Image src={"/assets/images/our-story.png"} fill alt="Our Story" />
       </div>
       <div className="grid grid-rows-[min-content_min-content_1fr] gap-y-12.5">

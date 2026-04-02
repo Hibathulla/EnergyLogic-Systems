@@ -1,12 +1,16 @@
+import Ellipse from "../components/common/ellipse/Ellipse";
 import Hero from "../components/hero/Hero";
-import OurStory from "../components/ourStory/OurStory";
+import OurServices from "../components/ourServices";
+import OurStory from "../components/ourStory";
 
 export default function Home() {
   return (
     <div>
       <Hero />
-      <div className="xl:max-w-375 px-20 mx-auto py-25 space-y-37.5">
+      <div className="relative max-w-375 mx-auto space-y-24 py-25 px-10">
+        <Ellipse />
         <OurStory />
+        <OurServices />
       </div>
     </div>
   );
