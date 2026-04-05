@@ -1,7 +1,7 @@
 import Image from "next/image";
 import StoryCard from "./StoryCard";
 import { STORY } from "../../constants/STORY";
-import Ellipse from "../common/ellipse/Ellipse";
+import Ellipse from "../common/Ellipse";
 
 const OurStory = () => {
   return (

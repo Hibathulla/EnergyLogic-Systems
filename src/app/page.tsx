@@ -1,17 +1,26 @@
-import Ellipse from "../components/common/ellipse/Ellipse";
+import Ellipse from "../components/common/Ellipse";
+import ContactUs from "../components/contactUs";
+import GeControls from "../components/geControls";
 import Hero from "../components/hero/Hero";
+import IndustrialControls from "../components/industrialControls";
+import OnlineStore from "../components/onlineStore";
 import OurServices from "../components/ourServices";
 import OurStory from "../components/ourStory";
+import SectionLayout from "../layouts/sectionLayout";
 
 export default function Home() {
   return (
     <div>
       <Hero />
-      <div className="relative max-w-375 mx-auto space-y-24 py-25 px-10">
+      <SectionLayout className="space-y-24">
         <Ellipse />
         <OurStory />
         <OurServices />
-      </div>
+      </SectionLayout>
+      <GeControls />
+      <IndustrialControls />
+      <OnlineStore />
+      <ContactUs />
     </div>
   );
 }

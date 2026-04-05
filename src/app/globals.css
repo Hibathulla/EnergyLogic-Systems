@@ -18,23 +18,37 @@
 @theme {
   --animate-fade-in: fade-in 3s ease-out;
   --animate-fade-in-delay: fade-in 3s ease-out 1s both;
+  --animate-tab-anim: tab-anim 1s ease-out;
 
   /* Breakpoint */
   --breakpoint-*: initial;
   --breakpoint-desktop: 91rem;
   --breakpoint-laptop: 75rem; /* 1200px */
   --breakpoint-tablet: 50rem; /* 800px */
-}
 
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-    transform: translateY(100px);
+  /* animation */
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+  @keyframes tab-anim {
+    0% {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 

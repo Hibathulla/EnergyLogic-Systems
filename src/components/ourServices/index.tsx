@@ -1,5 +1,5 @@
 import React from "react";
-import Ellipse from "../common/ellipse/Ellipse";
+import Ellipse from "../common/Ellipse";
 import { SERVICE_FEATURES, SERVICES } from "../../constants/SERVICES";
 import ServiceCard from "./ServiceCard";
 import ServiceFeatureCard from "./ServiceFeatureCard";
