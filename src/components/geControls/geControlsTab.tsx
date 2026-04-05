@@ -13,7 +13,6 @@ const GeControlsTab = ({
   setSelectedTab: React.Dispatch<React.SetStateAction<ItemWithoutImg | null>>;
 }) => {
   const isTabSelected = item?.id === selectedTab?.id;
-  console.log(selectedTab, isTabSelected, "test");
 
   return (
     <button

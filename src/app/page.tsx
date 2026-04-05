@@ -1,4 +1,7 @@
+"use client";
+import { useEffect, useRef, useState } from "react";
 import Ellipse from "../components/common/Ellipse";
+import Header from "../components/common/Header";
 import ContactUs from "../components/contactUs";
 import Footer from "../components/footer";
 import GeControls from "../components/geControls";
@@ -10,9 +13,39 @@ import OurStory from "../components/ourStory";
 import SectionLayout from "../layouts/sectionLayout";
 
 export default function Home() {
+  const heroRef = useRef<HTMLDivElement>(null);
+
+  const [headerBg, setHeaderBg] = useState(false);
+
+  useEffect(() => {
+    const observerElem = heroRef.current;
+
+    if (!observerElem) return;
+    const observerCbFunction = (entries: IntersectionObserverEntry[]) => {
+      if (entries?.[0]?.isIntersecting) {
+        setHeaderBg(false);
+      } else {
+        setHeaderBg(true);
+      }
+    };
+
+    const observer = new IntersectionObserver(observerCbFunction, {
+      root: null,
+      threshold: 0.8,
+      rootMargin: "0px",
+    });
+
+    observer.observe(observerElem);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <div>
-      <Hero />
+      <Header headerBg={headerBg} />
+      <Hero ref={heroRef} />
       <SectionLayout className="space-y-24">
         <Ellipse />
         <OurStory />

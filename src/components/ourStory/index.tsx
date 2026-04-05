@@ -1,11 +1,12 @@
 import Image from "next/image";
 import StoryCard from "./StoryCard";
 import { STORY } from "../../constants/STORY";
-import Ellipse from "../common/Ellipse";
+import { forwardRef } from "react";
 
-const OurStory = () => {
+const OurStory = forwardRef<HTMLDivElement>((props, ref) => {
   return (
     <section
+      ref={ref}
       id="our-story"
       className="relative grid grid-cols-[1fr] laptop:grid-cols-[486px_1fr] gap-x-14 overflow-hidden"
     >
@@ -44,6 +45,8 @@ const OurStory = () => {
       </div>
     </section>
   );
-};
+});
+
+OurStory.displayName = "OurStory";
 
 export default OurStory;
