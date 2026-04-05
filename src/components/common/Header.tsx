@@ -2,10 +2,11 @@ import Image from "next/image";
 import React from "react";
 import { NAVBAR } from "@/constants/NAVBAR";
 import Button from "./Button";
+import SectionLayout from "../../layouts/sectionLayout";
 
 const Header = () => {
   return (
-    <header className="hidden desktop:flex fixed left-1/2 -translate-x-1/2 w-full top-0 max-w-375 px-20 pt-27.5 justify-between items-center">
+    <header className="fixed max-w-375 py-25 top-0 hidden desktop:flex w-full justify-between items-center">
       <div className="flex items-center gap-4.5">
         <div className="relative w-20 h-20">
           <Image src={"/assets/svg/els-logo.svg"} alt="ELS-Logo" fill />

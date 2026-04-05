@@ -4,8 +4,8 @@ import Button from "../common/Button";
 
 const OnlineStore = () => {
   return (
-    <SectionLayout className="h-171 grid justify-center items-end bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,0.5)),url('/assets/images/online-store/online-store-bg.png')] bg-cover bg-no-repeat bg-center">
-      <div className="text-center">
+    <section className="h-171 bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,0.5)),url('/assets/images/online-store/online-store-bg.png')] bg-cover bg-no-repeat bg-center">
+      <SectionLayout className="h-full text-center grid-rows-[repeat(3,min-content)] grid content-end">
         <h1 className="text-white font-extrabold laptop:text-[64px] text-[55px]">
           Online Story
         </h1>
@@ -20,8 +20,8 @@ const OnlineStore = () => {
           Jigs / Benches
         </p>
         <Button className="mx-auto mt-7.5" icon="whatsapp" text="Contact Us" />
-      </div>
-    </SectionLayout>
+      </SectionLayout>
+    </section>
   );
 };
 

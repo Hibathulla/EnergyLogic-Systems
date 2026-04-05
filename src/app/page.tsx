@@ -1,5 +1,6 @@
 import Ellipse from "../components/common/Ellipse";
 import ContactUs from "../components/contactUs";
+import Footer from "../components/footer";
 import GeControls from "../components/geControls";
 import Hero from "../components/hero/Hero";
 import IndustrialControls from "../components/industrialControls";
@@ -21,6 +22,7 @@ export default function Home() {
       <IndustrialControls />
       <OnlineStore />
       <ContactUs />
+      <Footer />
     </div>
   );
 }
