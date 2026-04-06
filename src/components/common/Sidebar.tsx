@@ -88,7 +88,7 @@ const Sidebar: React.FC<{ headerBg: boolean }> = ({ headerBg }) => {
 
         <nav className="mt-15">
           <ul className="space-y-4 divide-y divide-(--secondary-color)/30">
-            {NAVBAR?.map((item, index) => {
+            {NAVBAR?.map((item) => {
               return (
                 <li
                   className="relative text-[26px] cursor-pointer pb-4 
@@ -96,9 +96,9 @@ const Sidebar: React.FC<{ headerBg: boolean }> = ({ headerBg }) => {
                            after:content-[''] after:block
                            after:w-0 after:h-0.5 gradient-primary-after
                            hover:after:w-full after:transition-all after:duration-500"
-                  key={index}
+                  key={item?.id}
                 >
-                  {item}
+                  {item?.name}
                 </li>
               );
             })}

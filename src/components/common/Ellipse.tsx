@@ -6,10 +6,10 @@ const Ellipse = () => {
 
   const positionsMb = ["top-[10%]", "top-[35%]", "top-[74%]", "top-[60%]"];
 
-  let screenWidth;
-  if (typeof window !== "undefined") screenWidth = window.innerWidth;
+  // let screenWidth;
+  // if (typeof window !== "undefined") screenWidth = window.innerWidth;
 
-  const positions = screenWidth! < 800 ? positionsMb : positionsDesk;
+  const positions = 900 < 800 ? positionsMb : positionsDesk;
 
   return (
     <>

@@ -2,8 +2,12 @@ import Image from "next/image";
 import React from "react";
 import { NAVBAR } from "@/constants/NAVBAR";
 import Button from "./Button";
+import Link from "next/link";
 
-const Header: React.FC<{ headerBg: boolean }> = ({ headerBg }) => {
+const Header: React.FC<{
+  headerBg: boolean;
+  scrollIntoView: (section: any) => void;
+}> = ({ headerBg, scrollIntoView }) => {
   return (
     <header
       className={`${headerBg ? "bg-(--background) shadow-lg" : ""} laptop:fixed z-50 w-full top-0 laptop:block hidden`}
@@ -34,16 +38,21 @@ const Header: React.FC<{ headerBg: boolean }> = ({ headerBg }) => {
           >
             {NAVBAR?.map((item, index) => {
               return (
-                <li
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollIntoView(item.link);
+                  }}
                   className="relative cursor-pointer 
                 text-base desktop:text-lg font-semibold
                 after:content-[''] after:block
                 after:w-0 after:h-1 gradient-primary-after
                 hover:after:w-full after:transition-all after:duration-500"
-                  key={index}
+                  key={item?.id}
                 >
-                  {item}
-                </li>
+                  {item?.name}
+                </button>
               );
             })}
             <Button text={"Contact Us"} icon={"whatsapp"} />

@@ -57,12 +57,14 @@ html {
   margin: 0;
   box-sizing: border-box;
   font-size: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
   min-height: 100vh;
   font-family: var(--font-inter);
   background: var(--background);
+  scroll-behavior: smooth;
 }
 
 @layer utilities {

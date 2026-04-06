@@ -7,8 +7,7 @@ const OurStory = forwardRef<HTMLDivElement>((props, ref) => {
   return (
     <section
       ref={ref}
-      id="our-story"
-      className="relative grid grid-cols-[1fr] laptop:grid-cols-[486px_1fr] gap-x-14 overflow-hidden"
+      className="scroll-mt-44 relative grid grid-cols-[1fr] laptop:grid-cols-[486px_1fr] gap-x-14 overflow-hidden"
     >
       <div className="rounded-[23px] w-full h-120 laptop:h-175 desktop:w-auto relative desktop:h-full">
         <Image src={"/assets/images/our-story.png"} fill alt="Our Story" />

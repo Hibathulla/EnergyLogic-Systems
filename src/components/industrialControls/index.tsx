@@ -4,7 +4,10 @@ import Button from "../common/Button";
 
 const IndustrialControls = () => {
   return (
-    <section className="h-171 grid justify-center items-end bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,0.5)),url('/assets/images/industrial-controls/industrial-controls-bg.png')] bg-cover bg-no-repeat bg-center">
+    <section
+      id="industrial-controls"
+      className="scroll-mt-36 h-171 grid justify-center items-end bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,0.5)),url('/assets/images/industrial-controls/industrial-controls-bg.png')] bg-cover bg-no-repeat bg-center"
+    >
       <SectionLayout className="text-center">
         <h1 className="text-white font-extrabold laptop:text-[64px] text-[55px]">
           Industrial Controls

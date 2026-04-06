@@ -11,7 +11,10 @@ const GeControls = () => {
   const [selectedTab, setSelectedTab] = useState<ItemWithoutImg | null>(null);
 
   return (
-    <section className="bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,0.5)),url('/assets/images/ge-controls/ge-controls-bg.png')] bg-cover bg-no-repeat bg-center">
+    <section
+      id="ge-controls"
+      className="scroll-mt-36 bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,0.5)),url('/assets/images/ge-controls/ge-controls-bg.png')] bg-cover bg-no-repeat bg-center"
+    >
       <SectionLayout className="grid justify-center">
         <div className="text-center space-y-3.5">
           <h1 className="text-white font-extrabold laptop:text-[64px] text-[55px]">

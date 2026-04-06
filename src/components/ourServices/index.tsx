@@ -6,7 +6,7 @@ import ServiceFeatureCard from "./ServiceFeatureCard";
 
 const OurServices = () => {
   return (
-    <section className="grid justify-center">
+    <section id="our-service" className="scroll-mt-44 grid justify-center">
       <div className="text-center space-y-3.5">
         <h1 className="text-(--primary-color) font-extrabold laptop:text-[64px] text-[55px]">
           Our Services
