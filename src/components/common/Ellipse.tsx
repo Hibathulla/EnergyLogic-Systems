@@ -6,8 +6,6 @@ const Ellipse = () => {
 
   const positionsMb = ["top-[10%]", "top-[35%]", "top-[74%]", "top-[60%]"];
 
-  console.log(window.innerWidth, "inner");
-
   let screenWidth;
   if (typeof window !== "undefined") screenWidth = window.innerWidth;
 
