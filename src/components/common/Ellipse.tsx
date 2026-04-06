@@ -2,7 +2,16 @@ import Image from "next/image";
 import React from "react";
 
 const Ellipse = () => {
-  const positions = ["-top-[10%]", "top-[50%]", "top-[50%]", "top-[60%]"];
+  const positionsDesk = ["-top-[10%]", "top-[50%]", "top-[50%]", "top-[60%]"];
+
+  const positionsMb = ["top-[10%]", "top-[35%]", "top-[74%]", "top-[60%]"];
+
+  console.log(window.innerWidth, "inner");
+
+  let screenWidth;
+  if (typeof window !== "undefined") screenWidth = window.innerWidth;
+
+  const positions = screenWidth! < 800 ? positionsMb : positionsDesk;
 
   return (
     <>

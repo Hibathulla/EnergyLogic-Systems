@@ -6,23 +6,23 @@ import Button from "./Button";
 const Header: React.FC<{ headerBg: boolean }> = ({ headerBg }) => {
   return (
     <header
-      className={` laptop:fixed max-w-375 z-50 w-full top-0 laptop:block hidden`}
+      className={`${headerBg ? "bg-(--background) shadow-lg" : ""} laptop:fixed z-50 w-full top-0 laptop:block hidden`}
     >
       <div
-        className={`${headerBg ? "bg-[#f1f5fb] py-5 shadow-lg" : "py-25"} px-10 flex relative
+        className={`max-w-375 mx-auto px-10 ${headerBg ? "py-5 " : "py-25"} flex relative
         w-full justify-between items-center`}
       >
-        <img
+        {/* <img
           src="/assets/svg/shapes/ellipse.svg"
-          className={`object-cover absolute w-full h-full left-40 top-0`}
+          className={`${headerBg ? "" : "hidden"} object-cover absolute w-full h-full left-40 top-0`}
           alt="ellipse"
-        />
+        /> */}
         <div className="flex items-center gap-4.5">
           <div className="relative w-20 h-20">
             <Image src={"/assets/svg/els-logo.svg"} alt="ELS-Logo" fill />
           </div>
           <h2
-            className={`${headerBg ? "text-black" : "text-white"} font-bold text-[27px] desktop:text-[30px] text-left`}
+            className={`${headerBg ? "text-(--text-black)" : "text-white"} font-bold text-[27px] desktop:text-[30px] text-left`}
           >
             <span className="block">EnergyLogic</span>
             <span className="block">Systems</span>
@@ -38,7 +38,7 @@ const Header: React.FC<{ headerBg: boolean }> = ({ headerBg }) => {
                   className="relative cursor-pointer 
                 text-base desktop:text-lg font-semibold
                 after:content-[''] after:block
-                after:w-0 after:h-0.5 gradient-primary-after
+                after:w-0 after:h-1 gradient-primary-after
                 hover:after:w-full after:transition-all after:duration-500"
                   key={index}
                 >

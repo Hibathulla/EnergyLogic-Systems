@@ -11,6 +11,7 @@ import OnlineStore from "../components/onlineStore";
 import OurServices from "../components/ourServices";
 import OurStory from "../components/ourStory";
 import SectionLayout from "../layouts/sectionLayout";
+import Sidebar from "../components/common/Sidebar";
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -45,6 +46,7 @@ export default function Home() {
   return (
     <div>
       <Header headerBg={headerBg} />
+      <Sidebar headerBg={headerBg} />
       <Hero ref={heroRef} />
       <SectionLayout className="space-y-24">
         <Ellipse />
