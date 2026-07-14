@@ -3,10 +3,8 @@ import Image from "next/image";
 import React, { Fragment, useState } from "react";
 import { NAVBAR } from "../../constants/NAVBAR";
 
-const Sidebar: React.FC<{ headerBg: boolean }> = ({ headerBg }) => {
+const Sidebar: React.FC<{ headerBg?: boolean }> = ({ headerBg = false }) => {
   const [sidebar, setSidebar] = useState(false);
-
-  console.log(sidebar, "sidebar");
 
   return (
     <Fragment>

@@ -72,6 +72,10 @@ body {
     @apply bg-linear-to-br from-white via-[#6BF0E7] to-[#83F501];
   }
 
+  .radius-20 {
+    @apply rounded-[20px];
+  }
+
   .gradient-primary:hover {
     @apply from-[#83F501] via-[#6BF0E7] to-white;
   }

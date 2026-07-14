@@ -1,20 +1,18 @@
+"use client";
+import { NAVBAR } from "@/constants/NAVBAR";
 import Image from "next/image";
 import React from "react";
-import { NAVBAR } from "@/constants/NAVBAR";
 import Button from "./Button";
-import Link from "next/link";
 
 const Header: React.FC<{
-  headerBg: boolean;
-  scrollIntoView: (section: any) => void;
-}> = ({ headerBg, scrollIntoView }) => {
+  headerBg?: boolean;
+}> = ({ headerBg = false }) => {
   return (
     <header
-      className={`${headerBg ? "bg-(--background) shadow-lg" : ""} laptop:fixed z-50 w-full top-0 laptop:block hidden`}
+      className={`${headerBg ? "bg-(--background) shadow-lg" : ""} laptop:fixed laptop:block top-0 z-50 hidden w-full`}
     >
       <div
-        className={`max-w-375 mx-auto px-10 ${headerBg ? "py-5 " : "py-25"} flex relative
-        w-full justify-between items-center`}
+        className={`mx-auto max-w-375 px-10 ${headerBg ? "py-5" : "py-25"} relative flex w-full items-center justify-between`}
       >
         {/* <img
           src="/assets/svg/shapes/ellipse.svg"
@@ -22,11 +20,11 @@ const Header: React.FC<{
           alt="ellipse"
         /> */}
         <div className="flex items-center gap-4.5">
-          <div className="relative w-20 h-20">
+          <div className="relative h-20 w-20">
             <Image src={"/assets/svg/els-logo.svg"} alt="ELS-Logo" fill />
           </div>
           <h2
-            className={`${headerBg ? "text-(--text-black)" : "text-white"} font-bold text-[27px] desktop:text-[30px] text-left`}
+            className={`${headerBg ? "text-(--text-black)" : "text-white"} desktop:text-[30px] text-left text-[27px] font-bold`}
           >
             <span className="block">EnergyLogic</span>
             <span className="block">Systems</span>
@@ -34,7 +32,7 @@ const Header: React.FC<{
         </div>
         <nav>
           <ul
-            className={`${headerBg ? "text-(--primary-color)" : "text-white"} flex items-center list-none gap-5 desktop:gap-12.5`}
+            className={`${headerBg ? "text-(--primary-color)" : "text-white"} desktop:gap-12.5 flex list-none items-center gap-5`}
           >
             {NAVBAR?.map((item, index) => {
               return (
@@ -42,13 +40,8 @@ const Header: React.FC<{
                   type="button"
                   onClick={(e) => {
                     e.preventDefault();
-                    scrollIntoView(item.link);
                   }}
-                  className="relative cursor-pointer 
-                text-base desktop:text-lg font-semibold
-                after:content-[''] after:block
-                after:w-0 after:h-1 gradient-primary-after
-                hover:after:w-full after:transition-all after:duration-500"
+                  className="desktop:text-lg gradient-primary-after relative cursor-pointer text-base font-semibold after:block after:h-1 after:w-0 after:transition-all after:duration-500 after:content-[''] hover:after:w-full"
                   key={item?.id}
                 >
                   {item?.name}

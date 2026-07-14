@@ -58,21 +58,9 @@ export default function Home() {
     };
   }, []);
 
-  const scrollIntoView = (section: keyof SectionRefs) => {
-    const element = sectionRefs[section]?.current;
-
-    if (!element) return;
-    requestAnimationFrame(() => {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    });
-  };
-
   return (
     <div>
-      <Header scrollIntoView={scrollIntoView} headerBg={headerBg} />
+      <Header headerBg={headerBg} />
       <Sidebar headerBg={headerBg} />
       <Hero ref={heroRef} />
       <SectionLayout className="space-y-24">
@@ -84,12 +72,12 @@ export default function Home() {
       <IndustrialControls />
       <OnlineStore />
       <ContactUs />
-      <Footer />{" "}
-      <button
+      <Footer />
+      {/* <button
         onClick={() => storyRef.current?.scrollIntoView({ behavior: "smooth" })}
       >
         Test Scroll
-      </button>
+      </button> */}
     </div>
   );
 }
