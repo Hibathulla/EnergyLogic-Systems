@@ -8,21 +8,21 @@ const Sidebar: React.FC<{ headerBg?: boolean }> = ({ headerBg = false }) => {
 
   return (
     <Fragment>
-      <div className={`fixed z-50 laptop:hidden left-0 w-full`}>
+      <div className={`laptop:hidden fixed left-0 z-50 w-full`}>
         <div
-          className={`flex items-center justify-between ${headerBg ? "bg-[#f1f5fb] py-5 shadow-xl" : "py-12"} px-4 relative tablet:px-10`}
+          className={`flex items-center justify-between ${headerBg ? "bg-app-background py-5 shadow-xl" : "py-12"} tablet:px-10 relative px-4`}
         >
           {/* <img
             src="/assets/svg/shapes/ellipse.svg"
             className={`${headerBg ? "left-0" : "hidden"} -z-[100] object-cover absolute w-full h-full top-0`}
             alt="ellipse"
           /> */}
-          <div className="flex items-center gap-2.5 tablet:gap-4.5">
-            <div className="relative w-14 h-14 tablet:w-20 tablet:h-20">
+          <div className="tablet:gap-4.5 flex items-center gap-2.5">
+            <div className="tablet:w-20 tablet:h-20 relative h-14 w-14">
               <Image src={"/assets/svg/els-logo.svg"} alt="ELS-Logo" fill />
             </div>
             <h2
-              className={`${headerBg ? "text-(--text-black)" : "text-white"} font-bold text-[18px] tablet:text-[27px] desktop:text-[30px] text-left`}
+              className={`${headerBg ? "text-(--text-black)" : "text-white"} tablet:text-[27px] desktop:text-[30px] text-left text-[18px] font-bold`}
             >
               <span className="block">EnergyLogic</span>
               <span className="block">Systems</span>
@@ -30,7 +30,7 @@ const Sidebar: React.FC<{ headerBg?: boolean }> = ({ headerBg = false }) => {
           </div>
           <div className="flex items-center gap-3">
             {" "}
-            <button className="cursor-pointer ml-auto gradient-primary w-10.25 h-10.25 rounded-full flex items-center justify-center">
+            <button className="gradient-primary ml-auto flex h-10.25 w-10.25 cursor-pointer items-center justify-center rounded-full">
               <Image
                 src={"/assets/svg/whatsapp.svg"}
                 width={25}
@@ -40,7 +40,7 @@ const Sidebar: React.FC<{ headerBg?: boolean }> = ({ headerBg = false }) => {
             </button>
             <button
               onClick={() => setSidebar(true)}
-              className="cursor-pointer ml-auto gradient-primary w-10.25 h-10.25 rounded-full flex items-center justify-center"
+              className="gradient-primary ml-auto flex h-10.25 w-10.25 cursor-pointer items-center justify-center rounded-full"
             >
               <Image
                 src={"/assets/svg/hamburger-menu.svg"}
@@ -55,17 +55,15 @@ const Sidebar: React.FC<{ headerBg?: boolean }> = ({ headerBg = false }) => {
 
       {/* sidebar */}
       <aside
-        className={`${headerBg ? "py-5" : "py-12"} ${sidebar ? "translate-x-0 block" : "translate-x-full"} 
-            flex flex-col bg-(--background) px-4 tablet:px-10 z-50 fixed top-0 left-0 
-            ease-in-out transition-all duration-700 w-full h-screen`}
+        className={`${headerBg ? "py-5" : "py-12"} ${sidebar ? "block translate-x-0" : "translate-x-full"} tablet:px-10 fixed top-0 left-0 z-50 flex h-screen w-full flex-col bg-(--background) px-4 transition-all duration-700 ease-in-out`}
       >
-        <div className="border-b border-(--secondary-color)/40 pb-6 flex items-center justify-between w-full">
-          <div className="flex items-center gap-2.5 tablet:gap-4.5">
-            <div className="relative w-14 h-14 tablet:w-20 tablet:h-20">
+        <div className="flex w-full items-center justify-between border-b border-(--secondary-color)/40 pb-6">
+          <div className="tablet:gap-4.5 flex items-center gap-2.5">
+            <div className="tablet:w-20 tablet:h-20 relative h-14 w-14">
               <Image src={"/assets/svg/els-logo.svg"} alt="ELS-Logo" fill />
             </div>
             <h2
-              className={`text-(--text-black) font-bold text-[18px] tablet:text-[27px] desktop:text-[30px] text-left`}
+              className={`tablet:text-[27px] desktop:text-[30px] text-left text-[18px] font-bold text-(--text-black)`}
             >
               <span className="block">EnergyLogic</span>
               <span className="block">Systems</span>
@@ -73,7 +71,7 @@ const Sidebar: React.FC<{ headerBg?: boolean }> = ({ headerBg = false }) => {
           </div>
           <button
             onClick={() => setSidebar(false)}
-            className="cursor-pointer ml-auto gradient-primary w-10.25 h-10.25 rounded-full flex items-center justify-center"
+            className="gradient-primary ml-auto flex h-10.25 w-10.25 cursor-pointer items-center justify-center rounded-full"
           >
             <Image
               src={"/assets/svg/close.svg"}
@@ -89,11 +87,7 @@ const Sidebar: React.FC<{ headerBg?: boolean }> = ({ headerBg = false }) => {
             {NAVBAR?.map((item) => {
               return (
                 <li
-                  className="relative text-[26px] cursor-pointer pb-4 
-                           text-base desktop:text-lg font-semibold
-                           after:content-[''] after:block
-                           after:w-0 after:h-0.5 gradient-primary-after
-                           hover:after:w-full after:transition-all after:duration-500"
+                  className="desktop:text-lg gradient-primary-after relative cursor-pointer pb-4 text-base text-[26px] font-semibold after:block after:h-0.5 after:w-0 after:transition-all after:duration-500 after:content-[''] hover:after:w-full"
                   key={item?.id}
                 >
                   {item?.name}
@@ -102,7 +96,7 @@ const Sidebar: React.FC<{ headerBg?: boolean }> = ({ headerBg = false }) => {
             })}
           </ul>
         </nav>
-        <p className="mt-auto text-(--text-black) text-[17px] text-center">
+        <p className="mt-auto text-center text-[17px] text-(--text-black)">
           © By Energy Logics Systems. All rights reserved.
         </p>
       </aside>

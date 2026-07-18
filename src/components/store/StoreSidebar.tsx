@@ -12,7 +12,7 @@ const StoreSidebar = ({}) => {
     <Fragment>
       <div className={`laptop:hidden fixed left-0 z-50 w-full`}>
         <div
-          className={`tablet:px-10 relative flex items-center justify-between bg-[#f1f5fb] px-4 py-5 shadow-xl`}
+          className={`tablet:px-10 relative flex items-center justify-between bg-app-background px-4 py-5 shadow-xl`}
         >
           {/* <img
             src="/assets/svg/shapes/ellipse.svg"

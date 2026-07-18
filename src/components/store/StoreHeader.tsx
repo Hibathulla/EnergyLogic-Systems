@@ -8,7 +8,7 @@ import Button from "../common/Button";
 const StoreHeader = () => {
   return (
     <header
-      className={`laptop:fixed laptop:flex top-0 z-50 hidden w-full items-center justify-between p-10`}
+      className={`bg-app-background laptop:fixed laptop:flex top-0 z-50 hidden w-full items-center justify-between p-10 drop-shadow-xl`}
     >
       {" "}
       <div className="flex items-center gap-4.5">

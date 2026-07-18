@@ -1,9 +1,9 @@
 import CategoryCard from "@/components/store/CategoryCard";
-import SectionLayout from "@/layouts/sectionLayout";
+import PageLayout from "@/layouts/pageLayout";
 
 export default function Page() {
   return (
-    <SectionLayout className="mt-28 text-center">
+    <PageLayout>
       <h1 className="laptop:text-[46px] text-[46px] font-extrabold text-(--primary-color)">
         Our Categories
       </h1>
@@ -15,6 +15,6 @@ export default function Page() {
         <CategoryCard />
         <CategoryCard />
       </div>
-    </SectionLayout>
+    </PageLayout>
   );
 }
