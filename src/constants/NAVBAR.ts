@@ -7,9 +7,9 @@ export const NAVBAR = [
 ];
 
 export const STORE_NAVBAR = [
-  { id: 1, name: "home", link: "/" },
-  { id: 2, name: "Categories", link: "category" },
-  { id: 3, name: "about-us", link: "about-us" },
-  { id: 4, name: "Contact", link: "contact" },
-  { id: 5, name: "Online Store", link: "#online-store" },
+  { id: 1, name: "Home", link: "/" },
+  { id: 2, name: "Products", link: "products" },
+  { id: 3, name: "Categories", link: "category" },
+  { id: 4, name: "About Us", link: "about-us" },
+  { id: 5, name: "Contact Us", link: "contact" },
 ];
