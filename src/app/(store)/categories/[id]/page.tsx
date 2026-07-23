@@ -2,21 +2,50 @@ import Drawer from "@/components/common/Drawer";
 import ProductCard from "@/components/store/productList/ProductCard";
 import ProductFilter from "@/components/store/productList/productFilter";
 import PageLayout from "@/layouts/pageLayout";
+import { createClient } from "@/utils/supabase/server";
 import { Funnel } from "lucide-react";
+import { cookies } from "next/headers";
 import Image from "next/image";
 
-export default function ProductListCategoryPage() {
+export default async function ProductListCategoryPage({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const cookieStore = await cookies();
+  const supabase = createClient(cookieStore);
+  const param = await params;
+  const categoryId = param.id;
+
+  const { data, error } = await supabase
+    .from("products")
+    .select(`*`)
+    .eq("category", categoryId);
+
+  console.log(data, "data");
+
+  const { data: categoryDetails, error: categoryError } = await supabase
+    .from("categories")
+    .select("*")
+    .eq("id", Number(categoryId))
+    .single();
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  if (categoryError) {
+    throw new Error(categoryError.message);
+  }
   return (
     <PageLayout className="mt-28 text-center">
       <div className="tablet:grid-cols-2 grid grid-cols-1 justify-items-center gap-4.5">
         <h3 className="self-center text-4xl font-bold text-(--primary-color)">
-          169 Motor Management Relay
+          {categoryDetails?.category}
         </h3>
         <div className="relative h-[300px] w-full">
           <Image
-            src={
-              "https://automationindustrial.com/cdn/shop/products/169-100P-120_1.JPEG?v=1656357498&width=1400"
-            }
+            src={categoryDetails?.image}
             fill
             className="radius-20 object-cover"
             objectFit="cover"
@@ -58,11 +87,11 @@ export default function ProductListCategoryPage() {
         </div>
 
         <div className="laptop:col-span-3 tablet:grid-cols-3 laptop:grid-cols-3 col-span-1 grid w-full grid-cols-1 justify-items-center gap-x-4.5 gap-y-10">
+          {/* <ProductCard />
           <ProductCard />
           <ProductCard />
           <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          <ProductCard /> */}
         </div>
       </div>
     </PageLayout>

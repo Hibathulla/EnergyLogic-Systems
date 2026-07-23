@@ -6,7 +6,7 @@ type CategoryRow = Tables<"categories">;
 
 const CategoryCard = ({ category }: { category: CategoryRow }) => {
   return (
-    <Link href="/online-store/3" className="cursor-pointer">
+    <Link href={`/categories/${category.id}`} className="cursor-pointer">
       <div className="group radius-20 before:radius-20 relative flex h-full items-center justify-center overflow-hidden bg-gray-200 p-1 shadow-md before:pointer-events-none before:absolute before:z-10 before:h-full before:w-full before:bg-[#0003] before:content-['']">
         <Image
           src={category.image}
