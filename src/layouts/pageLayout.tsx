@@ -1,9 +1,22 @@
-import React from "react";
+"use client";
 
-const PageLayout: React.FC<{
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+import type { ReactNode } from "react";
+
+const PageLayout = ({
+  className,
+  children,
+}: {
   className?: string;
-  children: React.ReactNode;
-}> = ({ className, children }) => {
+  children: ReactNode;
+}) => {
+  const pathname = usePathname();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [pathname]);
+
   return (
     <div
       className={`relative mx-auto mt-28 max-w-375 px-10 py-25 ${className}`}
