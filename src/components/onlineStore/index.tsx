@@ -25,7 +25,7 @@ const OnlineStore = () => {
           Jigs / Benches
         </p>
         <Button
-          onButtonClick={() => router.push("/categories")}
+          onButtonClick={() => router.push("/brands")}
           className="mx-auto mt-7.5"
           icon="/online-store/cart"
           text="Online Store"
