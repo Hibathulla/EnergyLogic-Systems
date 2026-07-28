@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
 import React, { Fragment, useState } from "react";
-import { NAVBAR, STORE_NAVBAR } from "../../constants/NAVBAR";
+import { NAVBAR, STORE_NAVBAR } from "../../../constants/NAVBAR";
 import { ShoppingBag } from "lucide-react";
-import Button from "../common/Button";
+import Button from "../Button";
 
 const StoreSidebar = ({}) => {
   const [sidebar, setSidebar] = useState(false);
@@ -12,7 +12,7 @@ const StoreSidebar = ({}) => {
     <Fragment>
       <div className={`laptop:hidden fixed left-0 z-50 w-full`}>
         <div
-          className={`tablet:px-10 relative flex items-center justify-between bg-app-background px-4 py-5 shadow-xl`}
+          className={`tablet:px-10 bg-app-background relative flex items-center justify-between px-4 py-5 shadow-xl`}
         >
           {/* <img
             src="/assets/svg/shapes/ellipse.svg"

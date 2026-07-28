@@ -3,21 +3,18 @@ import StoryCard from "./StoryCard";
 import { STORY } from "../../constants/STORY";
 import { forwardRef } from "react";
 
-const OurStory = forwardRef<HTMLDivElement>((props, ref) => {
+const OurStory = () => {
   return (
-    <section
-      ref={ref}
-      className="scroll-mt-44 relative grid grid-cols-[1fr] laptop:grid-cols-[486px_1fr] gap-x-14 overflow-hidden"
-    >
-      <div className="rounded-[23px] w-full h-120 laptop:h-175 desktop:w-auto relative desktop:h-full">
+    <section className="laptop:grid-cols-[486px_1fr] relative grid scroll-mt-44 grid-cols-[1fr] gap-x-14 overflow-hidden">
+      <div className="laptop:h-175 desktop:w-auto desktop:h-full relative h-120 w-full rounded-[23px]">
         <Image src={"/assets/images/our-story.png"} fill alt="Our Story" />
       </div>
       <div className="grid grid-rows-[min-content_min-content_1fr] gap-y-12.5">
-        <h1 className="text-(--primary-color) font-extrabold laptop:text-[64px] text-[55px]">
+        <h1 className="laptop:text-[64px] text-[55px] font-extrabold text-(--primary-color)">
           Our Story
         </h1>
-        <p className="text-(--secondary-color) leading-[130%] font-normal text-[14px] laptop:text-[16px]">
-          <span className="block mb-4">
+        <p className="laptop:text-[16px] text-[14px] leading-[130%] font-normal text-(--secondary-color)">
+          <span className="mb-4 block">
             We, EnergyLogic Systems was established with one clear goal: to
             deliver reliable industrial control solutions that keep plants
             operating safely and efficiently — every single day. With extensive
@@ -25,7 +22,7 @@ const OurStory = forwardRef<HTMLDivElement>((props, ref) => {
             electronics, we support clients around the world with the parts they
             need, exactly when they need them.
           </span>
-          <span className="block mb-4">
+          <span className="mb-4 block">
             Downtime is expensive — so our mission is to reduce risk, shorten
             delays, and ensure seamless plant operations.
           </span>
@@ -36,7 +33,7 @@ const OurStory = forwardRef<HTMLDivElement>((props, ref) => {
             make sure your operations never stop running.
           </span>
         </p>
-        <div className="grid tablet:grid-cols-[repeat(3,1fr)] laptop:grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-7.5">
+        <div className="tablet:grid-cols-[repeat(3,1fr)] laptop:grid-cols-[repeat(auto-fit,minmax(220px,1fr))] grid gap-7.5">
           {STORY.map((item) => {
             return <StoryCard key={item.id} item={item} />;
           })}
@@ -44,8 +41,6 @@ const OurStory = forwardRef<HTMLDivElement>((props, ref) => {
       </div>
     </section>
   );
-});
-
-OurStory.displayName = "OurStory";
+};
 
 export default OurStory;

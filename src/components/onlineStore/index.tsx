@@ -1,18 +1,20 @@
 import React from "react";
 import SectionLayout from "../../layouts/sectionLayout";
 import Button from "../common/Button";
+import { useRouter } from "next/navigation";
 
 const OnlineStore = () => {
+  const router = useRouter();
   return (
     <section
       id="online-store"
-      className="scroll-mt-36 h-171 bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,0.5)),url('/assets/images/online-store/online-store-bg.png')] bg-cover bg-no-repeat bg-center"
+      className="h-171 scroll-mt-36 bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,0.5)),url('/assets/images/online-store/online-store-bg.png')] bg-cover bg-center bg-no-repeat"
     >
-      <SectionLayout className="h-full text-center grid-rows-[repeat(3,min-content)] grid content-end">
-        <h1 className="text-white font-extrabold laptop:text-[64px] text-[55px]">
+      <SectionLayout className="grid h-full grid-rows-[repeat(3,min-content)] content-end text-center">
+        <h1 className="laptop:text-[64px] text-[55px] font-extrabold text-white">
           Online Story
         </h1>
-        <p className="text-white mx-auto w-[75%] leading-[130%] font-normal text-[14px] laptop:text-[16px]">
+        <p className="laptop:text-[16px] mx-auto w-[75%] text-[14px] leading-[130%] font-normal text-white">
           ELS supports Users of all types of Industrial Controls to source
           running parts as well as parts that have been declared Obsolete by the
           OEMs. ELS carries a reasonable stock of effective parts as required by
@@ -22,7 +24,12 @@ const OnlineStore = () => {
           months which will be fully tested in live panels or using General Test
           Jigs / Benches
         </p>
-        <Button className="mx-auto mt-7.5" icon="whatsapp" text="Contact Us" />
+        <Button
+          onButtonClick={() => router.push("/categories")}
+          className="mx-auto mt-7.5"
+          icon="/online-store/cart"
+          text="Online Store"
+        />
       </SectionLayout>
     </section>
   );
