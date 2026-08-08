@@ -44,9 +44,11 @@ const StoreSidebar = ({}) => {
               className="gradient-primary relative ml-auto flex h-10.25 w-10.25 cursor-pointer items-center justify-center rounded-full"
             >
               <ShoppingBag />
-              <span className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-(--secondary-color) text-xs font-medium text-white">
-                {cartCount}
-              </span>
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-(--secondary-color) text-xs font-medium text-white">
+                  {cartCount}
+                </span>
+              )}
             </button>
             <button
               onClick={() => setSidebar(true)}

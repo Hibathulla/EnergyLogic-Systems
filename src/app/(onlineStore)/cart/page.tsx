@@ -30,7 +30,7 @@ export default function CartPage() {
         {cartItems.length > 0 && (
           <div className="radius-20 flex flex-col gap-10 self-start bg-white px-12 py-16">
             <h2 className="text-2xl font-bold">Amount Card</h2>
-            <p>Total: $100.00</p>
+            <p>Total: AED 3100.00</p>
             <Button text="Checkout" />
           </div>
         )}

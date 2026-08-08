@@ -51,9 +51,11 @@ const StoreHeader = () => {
       <div className="flex items-center gap-6">
         <div className="relative">
           <ShoppingBag />
-          <span className="gradient-primary absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full text-sm font-medium text-(--text-black)">
-            {cartCount}
-          </span>
+          {cartCount > 0 && (
+            <span className="gradient-primary absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full text-sm font-medium text-(--text-black)">
+              {cartCount}
+            </span>
+          )}
         </div>
         <Button text={"Log In/Signup"} />
       </div>

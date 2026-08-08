@@ -3,10 +3,13 @@ import { NAVBAR } from "@/constants/NAVBAR";
 import Image from "next/image";
 import React from "react";
 import Button from "./Button";
+import { ShoppingBag } from "lucide-react";
+import { useCartStore } from "@/store/cartStore";
 
 const Header: React.FC<{
   headerBg?: boolean;
 }> = ({ headerBg = false }) => {
+  const { cartCount } = useCartStore();
   return (
     <header
       className={`${headerBg ? "bg-(--background) shadow-lg" : ""} laptop:fixed laptop:block top-0 z-50 hidden w-full`}
@@ -48,6 +51,14 @@ const Header: React.FC<{
                 </button>
               );
             })}
+            {cartCount > 0 && (
+              <div className="relative">
+                <ShoppingBag />
+                <span className="gradient-primary absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full text-sm font-medium text-(--text-black)">
+                  {cartCount}
+                </span>
+              </div>
+            )}
             <Button text={"Contact Us"} icon={"whatsapp"} />
           </ul>
         </nav>

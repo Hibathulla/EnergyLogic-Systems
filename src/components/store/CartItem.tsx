@@ -37,7 +37,7 @@ const CartItem = ({
         <p className="text-gray-600">Category: {item.brand}</p>
         <div className="mt-auto flex w-full items-center justify-between">
           <p className="text-2xl font-bold text-(--action-color)">
-            ${item.price.toFixed(2)}
+            AED {item.price.toFixed(2)}
           </p>
           <div className="tablet:flex hidden items-center gap-4 rounded-3xl bg-(--background) p-2 text-xl font-medium text-(--text-black)">
             <button

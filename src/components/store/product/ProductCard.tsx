@@ -26,7 +26,7 @@ const ProductCard = ({ product }: { product: Tables<"products"> }) => {
         </button>
         <div className="mt-4 flex flex-col items-start justify-between gap-3">
           <p className="text-end text-lg font-bold text-(--action-color)">
-            ${product.price.toFixed(2)}
+            AED {product.price.toFixed(2)}
           </p>
           <p className="text-sm font-medium text-(--green-color)">
             In Stock, {product.stock} Units
