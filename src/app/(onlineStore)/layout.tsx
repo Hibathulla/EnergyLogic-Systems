@@ -1,6 +1,6 @@
 import Footer from "@/components/footer";
-import StoreHeader from "@/components/common/store/StoreHeader";
-import StoreSidebar from "@/components/common/store/StoreSidebar";
+import StoreHeader from "@/components/common/store/OnlineStoreHeader";
+import StoreSidebar from "@/components/common/store/OnlineStoreSidebar";
 import React from "react";
 
 export default function RootLayout({

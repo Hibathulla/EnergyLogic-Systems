@@ -1,15 +1,18 @@
 "use client";
 import { NAVBAR } from "@/constants/NAVBAR";
+import { PAGE_URLS } from "@/constants/PAGE_URLS";
+import { useCartStore } from "@/store/cartStore";
+import { useTransitionRouter } from "@/utils/useTransitionRouter";
 import Image from "next/image";
 import React from "react";
 import Button from "./Button";
-import { ShoppingBag } from "lucide-react";
-import { useCartStore } from "@/store/cartStore";
+import CartButton from "./CartButton";
 
 const Header: React.FC<{
   headerBg?: boolean;
 }> = ({ headerBg = false }) => {
   const { cartCount } = useCartStore();
+  const router = useTransitionRouter();
   return (
     <header
       className={`${headerBg ? "bg-(--background) shadow-lg" : ""} laptop:fixed laptop:block top-0 z-50 hidden w-full`}
@@ -43,6 +46,11 @@ const Header: React.FC<{
                   type="button"
                   onClick={(e) => {
                     e.preventDefault();
+                    const section = document.getElementById(item?.link);
+                    console.log(section, item?.link, "section");
+                    if (section) {
+                      section.scrollIntoView({ behavior: "smooth" });
+                    }
                   }}
                   className="desktop:text-lg gradient-primary-after relative cursor-pointer text-base font-semibold after:block after:h-1 after:w-0 after:transition-all after:duration-500 after:content-[''] hover:after:w-full"
                   key={item?.id}
@@ -51,15 +59,13 @@ const Header: React.FC<{
                 </button>
               );
             })}
-            {cartCount > 0 && (
-              <div className="relative">
-                <ShoppingBag />
-                <span className="gradient-primary absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full text-sm font-medium text-(--text-black)">
-                  {cartCount}
-                </span>
-              </div>
-            )}
-            <Button text={"Contact Us"} icon={"whatsapp"} />
+            <CartButton noBg />
+            <Button
+              onButtonClick={() => router.push(PAGE_URLS.BRANDS)}
+              className="mx-auto"
+              icon="/online-store/cart"
+              text="Online Store"
+            />
           </ul>
         </nav>
       </div>

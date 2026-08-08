@@ -5,8 +5,10 @@ import { useTransitionRouter } from "@/utils/useTransitionRouter";
 import { ShoppingBag } from "lucide-react";
 import Image from "next/image";
 import Button from "../Button";
+import { PAGE_URLS } from "@/constants/PAGE_URLS";
+import CartButton from "../CartButton";
 
-const StoreHeader = () => {
+const OnlineStoreHeader = () => {
   const router = useTransitionRouter();
   const { cartCount } = useCartStore();
 
@@ -15,7 +17,7 @@ const StoreHeader = () => {
       className={`bg-app-background laptop:fixed laptop:flex top-0 z-50 hidden w-full items-center justify-between p-10 drop-shadow-xl`}
     >
       <button
-        onClick={() => router.push("/")}
+        onClick={() => router.push(PAGE_URLS.HOME)}
         className="flex cursor-pointer items-center gap-4.5"
       >
         <div className="relative h-20 w-20">
@@ -37,7 +39,7 @@ const StoreHeader = () => {
               <li
                 onClick={(e) => {
                   e.preventDefault();
-                  router.push(`/${item?.link}`);
+                  router.push(item?.link);
                 }}
                 className="desktop:text-lg gradient-primary-after relative cursor-pointer text-base font-semibold after:block after:h-1 after:w-0 after:transition-all after:duration-500 after:content-[''] hover:after:w-full"
                 key={item?.id}
@@ -49,18 +51,15 @@ const StoreHeader = () => {
         </ul>
       </nav>
       <div className="flex items-center gap-6">
-        <div className="relative">
-          <ShoppingBag />
-          {cartCount > 0 && (
-            <span className="gradient-primary absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full text-sm font-medium text-(--text-black)">
-              {cartCount}
-            </span>
-          )}
-        </div>
-        <Button text={"Log In/Signup"} />
+        <CartButton />
+        <Button
+          onButtonClick={() => router.push(PAGE_URLS.CONTACT_US)}
+          text={"Contact Us"}
+          icon={"whatsapp"}
+        />
       </div>
     </header>
   );
 };
 
-export default StoreHeader;
+export default OnlineStoreHeader;

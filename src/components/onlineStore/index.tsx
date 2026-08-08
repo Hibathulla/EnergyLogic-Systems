@@ -1,10 +1,10 @@
-import React from "react";
+import { PAGE_URLS } from "@/constants/PAGE_URLS";
+import { useTransitionRouter } from "@/utils/useTransitionRouter";
 import SectionLayout from "../../layouts/sectionLayout";
 import Button from "../common/Button";
-import { useRouter } from "next/navigation";
 
 const OnlineStore = () => {
-  const router = useRouter();
+  const router = useTransitionRouter();
   return (
     <section
       id="online-store"
@@ -12,7 +12,7 @@ const OnlineStore = () => {
     >
       <SectionLayout className="grid h-full grid-rows-[repeat(3,min-content)] content-end text-center">
         <h1 className="laptop:text-[64px] text-[55px] font-extrabold text-white">
-          Online Story
+          Online Store
         </h1>
         <p className="laptop:text-[16px] mx-auto w-[75%] text-[14px] leading-[130%] font-normal text-white">
           ELS supports Users of all types of Industrial Controls to source
@@ -25,7 +25,7 @@ const OnlineStore = () => {
           Jigs / Benches
         </p>
         <Button
-          onButtonClick={() => router.push("/brands")}
+          onButtonClick={() => router.push(PAGE_URLS.BRANDS)}
           className="mx-auto mt-7.5"
           icon="/online-store/cart"
           text="Online Store"

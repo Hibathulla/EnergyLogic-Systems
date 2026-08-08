@@ -1,4 +1,5 @@
 "use client";
+import { PAGE_URLS } from "@/constants/PAGE_URLS";
 import { Tables } from "@/types/supabase";
 import { useTransitionRouter } from "@/utils/useTransitionRouter";
 import Image from "next/image";
@@ -19,7 +20,7 @@ const ProductCard = ({ product }: { product: Tables<"products"> }) => {
 
       <div className="p-6 text-start text-(--text-black)">
         <button
-          onClick={() => router.push(`/products/${product.id}`)}
+          onClick={() => router.push(`${PAGE_URLS.PRODUCTS}/${product.id}`)}
           className="cursor-pointer text-start text-lg font-bold transition-colors duration-300 hover:text-(--action-color)"
         >
           {product.name}

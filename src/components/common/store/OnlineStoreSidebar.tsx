@@ -6,8 +6,9 @@ import { Fragment, useState } from "react";
 import { STORE_NAVBAR } from "../../../constants/NAVBAR";
 import Button from "../Button";
 import { useTransitionRouter } from "@/utils/useTransitionRouter";
+import { PAGE_URLS } from "@/constants/PAGE_URLS";
 
-const StoreSidebar = ({}) => {
+const OnlineStoreSidebar = ({}) => {
   const [sidebar, setSidebar] = useState(false);
   const { cartCount } = useCartStore();
   const router = useTransitionRouter();
@@ -40,7 +41,7 @@ const StoreSidebar = ({}) => {
           <div className="flex items-center gap-3">
             {" "}
             <button
-              onClick={() => router.push("/cart")}
+              onClick={() => router.push(PAGE_URLS.CART)}
               className="gradient-primary relative ml-auto flex h-10.25 w-10.25 cursor-pointer items-center justify-center rounded-full"
             >
               <ShoppingBag />
@@ -102,7 +103,7 @@ const StoreSidebar = ({}) => {
                 <li
                   onClick={(e) => {
                     e.preventDefault();
-                    router.push(`/${item?.link}`);
+                    router.push(item?.link);
                     setSidebar(false);
                   }}
                   className="desktop:text-lg relative cursor-pointer pb-4 text-base text-[26px] font-semibold after:block after:h-0.5 after:w-0 after:transition-all after:duration-500 after:content-[''] hover:after:w-full"
@@ -122,4 +123,4 @@ const StoreSidebar = ({}) => {
   );
 };
 
-export default StoreSidebar;
+export default OnlineStoreSidebar;

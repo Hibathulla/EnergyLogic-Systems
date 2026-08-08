@@ -12,11 +12,6 @@ import OurServices from "../components/ourServices";
 import OurStory from "../components/ourStory";
 import SectionLayout from "../layouts/sectionLayout";
 
-type SectionRefs = {
-  story: React.RefObject<HTMLDivElement | null>;
-  service: React.RefObject<HTMLDivElement | null>;
-};
-
 export default function Home() {
   const heroRef = useRef<HTMLDivElement | null>(null);
   const [headerBg, setHeaderBg] = useState(false);

@@ -5,7 +5,10 @@ import { forwardRef } from "react";
 
 const OurStory = () => {
   return (
-    <section className="laptop:grid-cols-[486px_1fr] relative grid scroll-mt-44 grid-cols-[1fr] gap-x-14 overflow-hidden">
+    <section
+      id="story"
+      className="laptop:grid-cols-[486px_1fr] relative grid scroll-mt-44 grid-cols-[1fr] gap-x-14 overflow-hidden"
+    >
       <div className="laptop:h-175 desktop:w-auto desktop:h-full relative h-120 w-full rounded-[23px]">
         <Image src={"/assets/images/our-story.png"} fill alt="Our Story" />
       </div>

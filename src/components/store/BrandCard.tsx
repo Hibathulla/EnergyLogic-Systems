@@ -1,4 +1,5 @@
 "use client";
+import { PAGE_URLS } from "@/constants/PAGE_URLS";
 import type { Tables } from "@/types/supabase";
 import { useTransitionRouter } from "@/utils/useTransitionRouter";
 import Image from "next/image";
@@ -9,7 +10,7 @@ const BrandCard = ({ brand }: { brand: BrandRow }) => {
   const router = useTransitionRouter();
   return (
     <button
-      onClick={() => router.push(`/brands/${brand.id}`)}
+      onClick={() => router.push(`${PAGE_URLS.BRANDS}/${brand.id}`)}
       className="group radius-20 before:radius-20 relative flex h-full items-center justify-center overflow-hidden bg-gray-200 p-1 shadow-md before:pointer-events-none before:absolute before:z-10 before:h-full before:w-full before:bg-[#0003] before:content-['']"
     >
       <Image

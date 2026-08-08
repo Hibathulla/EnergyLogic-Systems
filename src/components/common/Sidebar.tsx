@@ -2,9 +2,17 @@
 import Image from "next/image";
 import React, { Fragment, useState } from "react";
 import { NAVBAR } from "../../constants/NAVBAR";
+import Button from "./Button";
+import { useTransitionRouter } from "@/utils/useTransitionRouter";
+import { PAGE_URLS } from "@/constants/PAGE_URLS";
+import { ShoppingBag } from "lucide-react";
+import { useCartStore } from "@/store/cartStore";
+import CartButton from "./CartButton";
 
 const Sidebar: React.FC<{ headerBg?: boolean }> = ({ headerBg = false }) => {
   const [sidebar, setSidebar] = useState(false);
+  const router = useTransitionRouter();
+  const { cartCount } = useCartStore();
 
   return (
     <Fragment>
@@ -29,15 +37,7 @@ const Sidebar: React.FC<{ headerBg?: boolean }> = ({ headerBg = false }) => {
             </h2>
           </div>
           <div className="flex items-center gap-3">
-            {" "}
-            <button className="gradient-primary ml-auto flex h-10.25 w-10.25 cursor-pointer items-center justify-center rounded-full">
-              <Image
-                src={"/assets/svg/whatsapp.svg"}
-                width={25}
-                height={25}
-                alt="Hamburger menu"
-              />
-            </button>
+            <CartButton />
             <button
               onClick={() => setSidebar(true)}
               className="gradient-primary ml-auto flex h-10.25 w-10.25 cursor-pointer items-center justify-center rounded-full"
@@ -82,11 +82,25 @@ const Sidebar: React.FC<{ headerBg?: boolean }> = ({ headerBg = false }) => {
           </button>
         </div>
 
+        <Button
+          onButtonClick={() => router.push(PAGE_URLS.BRANDS)}
+          className="my-10 self-start"
+          icon="/online-store/cart"
+          text="Online Store"
+        />
+
         <nav className="mt-15">
           <ul className="space-y-4 divide-y divide-(--secondary-color)/30">
             {NAVBAR?.map((item) => {
               return (
                 <li
+                  onClick={() => {
+                    setSidebar(false);
+                    const section = document.getElementById(item?.link);
+                    if (section) {
+                      section.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
                   className="desktop:text-lg gradient-primary-after relative cursor-pointer pb-4 text-base text-[26px] font-semibold after:block after:h-0.5 after:w-0 after:transition-all after:duration-500 after:content-[''] hover:after:w-full"
                   key={item?.id}
                 >
