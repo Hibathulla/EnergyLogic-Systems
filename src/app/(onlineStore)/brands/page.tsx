@@ -1,8 +1,7 @@
-import CategoryCard from "@/components/store/BrandCard";
-import PageLayout from "@/layouts/pageLayout";
-import { cookies } from "next/headers";
-import { createClient } from "@/utils/supabase/server";
 import BrandCard from "@/components/store/BrandCard";
+import PageLayout from "@/layouts/pageLayout";
+import { createClient } from "@/utils/supabase/server";
+import { cookies } from "next/headers";
 
 export default async function Page() {
   const cookieStore = await cookies();

@@ -1,17 +1,16 @@
 "use client";
 import { useLoaderStore } from "@/store/loaderStore";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export const useTransitionRouter = () => {
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const { setIsLoading } = useLoaderStore();
 
   useEffect(() => {
     setIsLoading(false);
-  }, [pathname, searchParams, setIsLoading]);
+  }, [pathname, setIsLoading]);
 
   const transitionPush = (url: string) => {
     setIsLoading(true);
