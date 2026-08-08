@@ -3,7 +3,6 @@ import Button from "@/components/common/Button";
 import CartItem from "@/components/store/CartItem";
 import PageLayout from "@/layouts/pageLayout";
 import { useCartStore } from "@/store/cartStore";
-import React from "react";
 
 export default function CartPage() {
   const { cartItems, removeFromCart } = useCartStore();

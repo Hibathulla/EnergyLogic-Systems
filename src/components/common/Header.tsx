@@ -47,7 +47,6 @@ const Header: React.FC<{
                   onClick={(e) => {
                     e.preventDefault();
                     const section = document.getElementById(item?.link);
-                    console.log(section, item?.link, "section");
                     if (section) {
                       section.scrollIntoView({ behavior: "smooth" });
                     }

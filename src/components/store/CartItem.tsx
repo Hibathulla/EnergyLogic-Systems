@@ -30,7 +30,10 @@ const CartItem = ({
           <h3 className="text-lg font-bold text-(--primary-color)">
             GE Multilin 139-V1EFTZ-DK RTD Sensor
           </h3>
-          <button className="cursor-pointer">
+          <button
+            onClick={() => removeCartItem(item.id)}
+            className="cursor-pointer"
+          >
             <Trash2 />
           </button>
         </div>
