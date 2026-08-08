@@ -1,10 +1,10 @@
 "use client";
 import { Tables } from "@/types/supabase";
+import { useTransitionRouter } from "@/utils/useTransitionRouter";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 
 const ProductCard = ({ product }: { product: Tables<"products"> }) => {
-  const router = useRouter();
+  const router = useTransitionRouter();
 
   return (
     <div className="radius-20 border-app-background overflow-hidden border-2 bg-white">

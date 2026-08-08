@@ -1,13 +1,15 @@
 "use client";
 import { STORE_NAVBAR } from "@/constants/NAVBAR";
+import { useCartStore } from "@/store/cartStore";
+import { useTransitionRouter } from "@/utils/useTransitionRouter";
 import { ShoppingBag } from "lucide-react";
 import Image from "next/image";
-import React from "react";
 import Button from "../Button";
-import { useRouter } from "next/navigation";
 
 const StoreHeader = () => {
-  const router = useRouter();
+  const router = useTransitionRouter();
+  const { cartCount } = useCartStore();
+
   return (
     <header
       className={`bg-app-background laptop:fixed laptop:flex top-0 z-50 hidden w-full items-center justify-between p-10 drop-shadow-xl`}
@@ -32,8 +34,7 @@ const StoreHeader = () => {
         >
           {STORE_NAVBAR?.map((item) => {
             return (
-              <button
-                type="button"
+              <li
                 onClick={(e) => {
                   e.preventDefault();
                   router.push(`/${item?.link}`);
@@ -42,13 +43,18 @@ const StoreHeader = () => {
                 key={item?.id}
               >
                 {item?.name}
-              </button>
+              </li>
             );
           })}
         </ul>
       </nav>
       <div className="flex items-center gap-6">
-        <ShoppingBag />
+        <div className="relative">
+          <ShoppingBag />
+          <span className="gradient-primary absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full text-sm font-medium text-(--text-black)">
+            {cartCount}
+          </span>
+        </div>
         <Button text={"Log In/Signup"} />
       </div>
     </header>

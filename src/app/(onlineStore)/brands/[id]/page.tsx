@@ -4,7 +4,7 @@ import { createClient } from "@/utils/supabase/server";
 import { cookies } from "next/headers";
 import Image from "next/image";
 
-export default async function ProductListCategoryPage({
+export default async function ProductListBrandsPage({
   params,
 }: {
   params: { id: string };

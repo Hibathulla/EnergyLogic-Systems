@@ -1,6 +1,7 @@
 "use client";
 import Button from "@/components/common/Button";
 import PageLayout from "@/layouts/pageLayout";
+import { useCartStore } from "@/store/cartStore";
 import { Tables } from "@/types/supabase";
 import Image from "next/image";
 import React from "react";
@@ -10,6 +11,7 @@ const ProductDetail = ({
 }: {
   productDetail: Tables<"products">;
 }) => {
+  const { addToCart } = useCartStore();
   const [selectedImage, setSelectedImage] = React.useState<string | null>(
     productDetail?.image_urls?.[0] || null
   );
@@ -63,7 +65,12 @@ const ProductDetail = ({
               In Stock, {productDetail?.stock} Units
             </p>
           </div>
-          <Button icon="online-store/cart" type="outline" text="Add to cart" />
+          <Button
+            onButtonClick={() => addToCart(productDetail)}
+            icon="online-store/cart"
+            type="outline"
+            text="Add to cart"
+          />
           <Button text="Buy Now" />
 
           <div>{productDetail?.description}</div>

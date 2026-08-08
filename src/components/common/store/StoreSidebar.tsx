@@ -1,12 +1,16 @@
 "use client";
-import Image from "next/image";
-import React, { Fragment, useState } from "react";
-import { NAVBAR, STORE_NAVBAR } from "../../../constants/NAVBAR";
+import { useCartStore } from "@/store/cartStore";
 import { ShoppingBag } from "lucide-react";
+import Image from "next/image";
+import { Fragment, useState } from "react";
+import { STORE_NAVBAR } from "../../../constants/NAVBAR";
 import Button from "../Button";
+import { useTransitionRouter } from "@/utils/useTransitionRouter";
 
 const StoreSidebar = ({}) => {
   const [sidebar, setSidebar] = useState(false);
+  const { cartCount } = useCartStore();
+  const router = useTransitionRouter();
 
   return (
     <Fragment>
@@ -19,8 +23,11 @@ const StoreSidebar = ({}) => {
             className={`${headerBg ? "left-0" : "hidden"} -z-[100] object-cover absolute w-full h-full top-0`}
             alt="ellipse"
           /> */}
-          <div className="tablet:gap-4.5 flex items-center gap-2.5">
-            <div className="tablet:w-20 tablet:h-20 relative h-14 w-14">
+          <button
+            onClick={() => router.replace("/")}
+            className="tablet:gap-4.5 flex cursor-pointer items-center gap-2.5"
+          >
+            <div className="tablet:w-20 tablet:h-20 relative h-14 w-14 cursor-pointer">
               <Image src={"/assets/svg/els-logo.svg"} alt="ELS-Logo" fill />
             </div>
             <h2
@@ -29,11 +36,17 @@ const StoreSidebar = ({}) => {
               <span className="block">EnergyLogic</span>
               <span className="block">Systems</span>
             </h2>
-          </div>
+          </button>
           <div className="flex items-center gap-3">
             {" "}
-            <button className="gradient-primary ml-auto flex h-10.25 w-10.25 cursor-pointer items-center justify-center rounded-full">
+            <button
+              onClick={() => router.push("/cart")}
+              className="gradient-primary relative ml-auto flex h-10.25 w-10.25 cursor-pointer items-center justify-center rounded-full"
+            >
               <ShoppingBag />
+              <span className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-(--secondary-color) text-xs font-medium text-white">
+                {cartCount}
+              </span>
             </button>
             <button
               onClick={() => setSidebar(true)}
@@ -85,6 +98,11 @@ const StoreSidebar = ({}) => {
             {STORE_NAVBAR?.map((item) => {
               return (
                 <li
+                  onClick={(e) => {
+                    e.preventDefault();
+                    router.push(`/${item?.link}`);
+                    setSidebar(false);
+                  }}
                   className="desktop:text-lg relative cursor-pointer pb-4 text-base text-[26px] font-semibold after:block after:h-0.5 after:w-0 after:transition-all after:duration-500 after:content-[''] hover:after:w-full"
                   key={item?.id}
                 >
